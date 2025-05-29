@@ -104,7 +104,7 @@ function incrFoulsHome() {
         foulLightHome2.style.setProperty("--after-bg", "var(--color-foul-green)")
         foulLightHome2.style.setProperty("--after-shadow", "var(--color-shadow-light)")
     } else if (foulsHome == 3) {
-        foulLightHome3.style.setProperty("--after-bg", "var(--color-foul-green)")
+        foulLightHome3.style.setProperty("--after-bg", "var(--color-foul-yellow)")
         foulLightHome3.style.setProperty("--after-shadow", "var(--color-shadow-light)")
     } else if (foulsHome == 4) {
         foulLightHome4.style.setProperty("--after-bg", "var(--color-foul-orange)")
@@ -129,7 +129,7 @@ function incrFoulsGuest() {
         foulLightGuest4.style.setProperty("--after-bg", "var(--color-foul-green)")
         foulLightGuest4.style.setProperty("--after-shadow", "var(--color-shadow-light)")
       } else if (foulsGuest == 3) {
-        foulLightGuest3.style.setProperty("--after-bg", "var(--color-foul-green)")
+        foulLightGuest3.style.setProperty("--after-bg", "var(--color-foul-yellow)")
         foulLightGuest3.style.setProperty("--after-shadow", "var(--color-shadow-light)")
       } else if (foulsGuest == 4) {
         foulLightGuest2.style.setProperty("--after-bg", "var(--color-foul-orange)")
