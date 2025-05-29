@@ -52,6 +52,8 @@ body {
     position: relative;
     font-family: var(--font-normal);
     color: var(--color-text);
+    overflow: hidden;
+    touch-action: pan-y;
 }
 
 .btn {
