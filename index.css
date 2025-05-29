@@ -16,6 +16,7 @@
     --color-bonus: #F94F6D;
     --color-shadow-light: #302224;
     --color-foul-green: #10B981;
+    --color-foul-yellow: ;
     --color-foul-orange: #F59E0B;
     --font-normal: Verdana, sans-serif;
     --font-digits: 'Cursed Timer';
@@ -58,7 +59,8 @@ body {
 }
 
 .btn:focus {
-    outline: 3px solid var(--color-score);
+    /* outline: 3px solid var(--color-score); */
+    outline: none;
 }
 
 .btn:active {
@@ -89,7 +91,7 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba(42, 46, 51, 0.3);
+    background: rgba(42, 46, 51, 0.5);
     z-index: 1;
 }
 

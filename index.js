@@ -123,17 +123,17 @@ function incrFoulsGuest() {
     foulsGuest += 1
     
     if (foulsGuest == 1) {
-        foulLightGuest1.style.setProperty("--after-bg", "var(--color-foul-green)")
-        foulLightGuest1.style.setProperty("--after-shadow", "var(--color-shadow-light)")
+        foulLightGuest5.style.setProperty("--after-bg", "var(--color-foul-green)")
+        foulLightGuest5.style.setProperty("--after-shadow", "var(--color-shadow-light)")
       } else if (foulsGuest == 2) {
-        foulLightGuest2.style.setProperty("--after-bg", "var(--color-foul-green)")
-        foulLightGuest2.style.setProperty("--after-shadow", "var(--color-shadow-light)")
+        foulLightGuest4.style.setProperty("--after-bg", "var(--color-foul-green)")
+        foulLightGuest4.style.setProperty("--after-shadow", "var(--color-shadow-light)")
       } else if (foulsGuest == 3) {
         foulLightGuest3.style.setProperty("--after-bg", "var(--color-foul-green)")
         foulLightGuest3.style.setProperty("--after-shadow", "var(--color-shadow-light)")
       } else if (foulsGuest == 4) {
-        foulLightGuest4.style.setProperty("--after-bg", "var(--color-foul-orange)")
-        foulLightGuest4.style.setProperty("--after-shadow", "var(--color-shadow-light)")
+        foulLightGuest2.style.setProperty("--after-bg", "var(--color-foul-orange)")
+        foulLightGuest2.style.setProperty("--after-shadow", "var(--color-shadow-light)")
       } else if (foulsGuest == 5) {
         foulLightGuest1.style.setProperty("--after-bg", "var(--color-bonus)")
         foulLightGuest2.style.setProperty("--after-bg", "var(--color-bonus)")
