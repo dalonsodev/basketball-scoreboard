@@ -277,9 +277,13 @@ body {
 @media (hover: hover) and (pointer: fine) {
   .btn:hover {
     background-color: initial;
+    outline: none;
+    border: none;
   }
   .foul:hover {
     background-color: initial;
+    outline: none;
+    border: none;
   }
 }
 
