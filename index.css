@@ -274,6 +274,15 @@ body {
     border: 2px solid var(--color-score)
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    background-color: initial;
+  }
+  .foul:hover {
+    background-color: initial;
+  }
+}
+
 @media (max-width: 550px) {
     .container {
         min-width: 375px;
