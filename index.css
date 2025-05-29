@@ -286,13 +286,6 @@ body {
     }
 }
 
-@media (hover: none) {
-    .btn:hover,
-    .foul:hover, #new-game-btn:hover {
-        background-color: initial; /* Vuelve al color base del botón */
-    }
-}
-
 @media (max-width: 550px) {
     .container {
         min-width: 375px;
