@@ -72,10 +72,8 @@ body {
     outline: 3px solid var(--color-score);
 }
 
-.btn:hover {
+.btn:active {
     background: var(--color-score);
-    /* outline: 2px solid var(--color-text);
-    outline-offset: -2px; */
 }
 
 .score, .btn {
@@ -239,7 +237,7 @@ body {
     font-size: 14px;
 }
 
-.foul:hover {
+.foul:active {
     background: var(--color-bonus);
 }
 
@@ -269,22 +267,30 @@ body {
     border-bottom-right-radius: 25%;
 }
 
-#new-game-btn:hover {
+#new-game-btn:active {
     background: var(--color-bg-score);
-    border: 2px solid var(--color-score)
+    border: 2px solid var(--color-score);
 }
 
+
 @media (hover: hover) and (pointer: fine) {
-  .btn:hover {
-    background-color: initial;
-    outline: none;
-    border: none;
-  }
-  .foul:hover {
-    background-color: initial;
-    outline: none;
-    border: none;
-  }
+    .btn:hover {
+        background: var(--color-score);
+    }
+    .foul:hover {
+        background: var(--color-bonus);
+    }
+    #new-game-btn:hover {
+        background: var(--color-bg-score);
+        border: 2px solid var(--color-score);
+    }
+}
+
+@media (hover: none) {
+    .btn:hover,
+    .foul:hover, #new-game-btn:hover {
+        background-color: initial; /* Vuelve al color base del botón */
+    }
 }
 
 @media (max-width: 550px) {
