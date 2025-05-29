@@ -4,17 +4,6 @@
 }
 
 :root {
-    /* ORIGINAL VARIABLES */
-    /* --color-bg: #1B244A;
-    --color-text: #EEEEEE;
-    --color-text-button: #9AABD8;
-    --color-score: #F94F6D;
-    --color-bg-score: #080001;
-    --font-normal: Verdana, sans-serif;
-    --font-digits: 'Cursed Timer';
-    --color-foul-green: #10B981;
-    --color-foul-orange: #FF8C00; */
-    
     /* CUSTOM VARIABLES */
     --color-bg: #1E3A8A;
     --color-text: #F9FAFB;
@@ -74,6 +63,10 @@ body {
 
 .btn:active {
     background: var(--color-score);
+}
+
+button[class^="btn"] {
+    user-select: none;
 }
 
 .score, .btn {
@@ -271,7 +264,6 @@ body {
     background: var(--color-bg-score);
     border: 2px solid var(--color-score);
 }
-
 
 @media (hover: hover) and (pointer: fine) {
     .btn:hover {
