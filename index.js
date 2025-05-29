@@ -103,10 +103,20 @@ function incrFoulsHome() {
     } else if (foulsHome == 2) {
         foulLightHome2.style.setProperty("--after-bg", "var(--color-foul-green)")
         foulLightHome2.style.setProperty("--after-shadow", "var(--color-shadow-light)")
-    } else if (foulsHome == 3) {
+      } else if (foulsHome == 3) {
+        foulLightHome1.style.setProperty("--after-bg", "var(--color-foul-yellow)")
+        foulLightHome1.style.setProperty("--after-shadow", "var(--color-shadow-light)")
+        foulLightHome2.style.setProperty("--after-bg", "var(--color-foul-yellow)")
+        foulLightHome2.style.setProperty("--after-shadow", "var(--color-shadow-light)")
         foulLightHome3.style.setProperty("--after-bg", "var(--color-foul-yellow)")
         foulLightHome3.style.setProperty("--after-shadow", "var(--color-shadow-light)")
-    } else if (foulsHome == 4) {
+      } else if (foulsHome == 4) {
+        foulLightHome1.style.setProperty("--after-bg", "var(--color-foul-orange)")
+        foulLightHome1.style.setProperty("--after-shadow", "var(--color-shadow-light)")
+        foulLightHome2.style.setProperty("--after-bg", "var(--color-foul-orange)")
+        foulLightHome2.style.setProperty("--after-shadow", "var(--color-shadow-light)")
+        foulLightHome3.style.setProperty("--after-bg", "var(--color-foul-orange)")
+        foulLightHome3.style.setProperty("--after-shadow", "var(--color-shadow-light)")
         foulLightHome4.style.setProperty("--after-bg", "var(--color-foul-orange)")
         foulLightHome4.style.setProperty("--after-shadow", "var(--color-shadow-light)")
     } else if (foulsHome == 5) {
@@ -129,9 +139,19 @@ function incrFoulsGuest() {
         foulLightGuest4.style.setProperty("--after-bg", "var(--color-foul-green)")
         foulLightGuest4.style.setProperty("--after-shadow", "var(--color-shadow-light)")
       } else if (foulsGuest == 3) {
+        foulLightGuest4.style.setProperty("--after-bg", "var(--color-foul-yellow)")
+        foulLightGuest4.style.setProperty("--after-shadow", "var(--color-shadow-light)")
+        foulLightGuest5.style.setProperty("--after-bg", "var(--color-foul-yellow)")
+        foulLightGuest5.style.setProperty("--after-shadow", "var(--color-shadow-light)")
         foulLightGuest3.style.setProperty("--after-bg", "var(--color-foul-yellow)")
         foulLightGuest3.style.setProperty("--after-shadow", "var(--color-shadow-light)")
       } else if (foulsGuest == 4) {
+        foulLightGuest4.style.setProperty("--after-bg", "var(--color-foul-orange)")
+        foulLightGuest4.style.setProperty("--after-shadow", "var(--color-shadow-light)")
+        foulLightGuest5.style.setProperty("--after-bg", "var(--color-foul-orange)")
+        foulLightGuest5.style.setProperty("--after-shadow", "var(--color-shadow-light)")
+        foulLightGuest3.style.setProperty("--after-bg", "var(--color-foul-orange)")
+        foulLightGuest3.style.setProperty("--after-shadow", "var(--color-shadow-light)")
         foulLightGuest2.style.setProperty("--after-bg", "var(--color-foul-orange)")
         foulLightGuest2.style.setProperty("--after-shadow", "var(--color-shadow-light)")
       } else if (foulsGuest == 5) {
