@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    </head>
+    <body>
+        <div id="body-overlay">
+            <div class="container">
+                <div class="players-wrapper">
+                    <div class="player" id="home">
+                        <h3 class="player-header" id="player-home">HOME</h3>
+                        <div class="score-bg">
+                            <p class="score" id="score-home" onclick="scoreHome()"></p>
+                        </div>
+                        <div class="fouls-bar" id="home-fouls-bar">
+                            <div class="foul-light" id="home-foul-light1"></div>
+                            <div class="foul-light" id="home-foul-light2"></div>
+                            <div class="foul-light" id="home-foul-light3"></div>
+                            <div class="foul-light" id="home-foul-light4"></div>
+                            <div class="foul-light" id="home-foul-light5"></div>
+                        </div>
+                        <div class="points">
+                            <button class="btn increase" id="incr-home1" onclick="incrHome1(); winner()">+1</button>
+                            <button class="btn increase" id="incr-home2" onclick="incrHome2(); winner()">+2</button>
+                            <button class="btn increase" id="incr-home3" onclick="incrHome3(); winner()">+3</button>
+                        </div>
+                        <div class="foul-btn-wrapper">
+                            <button class="btn foul" onclick="incrFoulsHome()">FOUL</button>
+                        </div>
+                    </div>
+                    <div class="player" id="guest">
+                        <h3 class="player-header" id="player-guest">GUEST</h3>
+                        <div class="score-bg">
+                            <p class="score" id="score-guest"></p>
+                        </div>
+                        <div class="fouls-bar" id="guest-fouls-bar">
+                            <div class="foul-light" id="guest-foul-light1"></div>
+                            <div class="foul-light" id="guest-foul-light2"></div>
+                            <div class="foul-light" id="guest-foul-light3"></div>
+                            <div class="foul-light" id="guest-foul-light4"></div>
+                            <div class="foul-light" id="guest-foul-light5"></div>
+                        </div>
+                        <div class="points">
+                            <button class="btn increase" id="incr-guest1" onclick="incrGuest1(); winner()" >+1</button>
+                            <button class="btn increase" id="incr-guest2" onclick="incrGuest2(); winner()">+2</button>
+                            <button class="btn increase" id="incr-guest3" onclick="incrGuest3(); winner()">+3</button>
+                        </div>
+                        <div class="foul-btn-wrapper">
+                            <button class="btn foul" onclick="incrFoulsGuest()">FOUL</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="extras-wrapper">
+                    <button class="btn" id="new-game-btn" onclick="newGame()">NEW GAME</button>
+                </div>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
