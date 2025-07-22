@@ -299,12 +299,6 @@ body {
 
 @media (orientation: landscape) {
    .container {
-      /* transform: scaleY(0.8); */
-      max-width: 90vw;
-      max-height: 100vh;
-   }
-
-   .players-wrapper {
-      top: -25px;
+      transform: scale(0.8);
    }
 }
