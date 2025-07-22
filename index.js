@@ -8,6 +8,27 @@ const playerHome = document.getElementById("player-home")
 const newScoreHome = document.getElementById("score-home")
 const newScoreGuest = document.getElementById("score-guest")
 
+const leaderStyles = {
+   leader: {
+      textShadow: "0 0 5px var(--color-shadow-leader), 0 0 10px var(--color-shadow-leader)",
+      beforeContent: "'LEADER'",
+      beforeVisibility: "visible",
+      beforeOpacity: "1",
+   },
+   noLeader: {
+      textShadow: "none",
+      beforeContent: "''",
+      beforeVisibility: "hidden",
+      beforeOpacity: "0"
+   },
+   tie: {
+      textShadow: "0 0 2px var(--color-shadow-tie), 0 0 7px var(--color-shadow-tie)",
+      beforeContent: "'- EVEN -'",
+      beforeVisibility: "visible",
+      beforeOpacity: "1"
+   }
+}
+
 const foulLightsHome = [
    document.getElementById("home-foul-light1"),
    document.getElementById("home-foul-light2"),
@@ -24,11 +45,8 @@ const foulLightsGuest = [
    document.getElementById("guest-foul-light5")
 ]
 
-document.getElementById("score-home").textContent = scoreHome
-document.getElementById("score-guest").textContent = scoreGuest
 
-
-function incrementScore(team, score) {
+function incrScore(team, score) {
    if (team === "home") {
       scoreHome += score
       newScoreHome.textContent = scoreHome
@@ -40,36 +58,12 @@ function incrementScore(team, score) {
    winner()
 }
 
-////
-
-const leaderStyles = {
-   leader: {
-      textShadow: "0 0 5px var(--color-shadow-leader), 0 0 10px var(--color-shadow-leader)",
-      beforeContent: "'LEADER'",
-      beforeVisibility: "visible",
-      beforeOpacity: "1",
-   },
-   noLeader: {
-      textShadow: "none",
-      beforeVisibility: "hidden",
-      beforeOpacity: "0"
-   },
-   tie: {
-      textShadow: "0 0 2px var(--color-shadow-tie), 0 0 7px var(--color-shadow-tie)",
-      beforeContent: "'- EVEN -'",
-      beforeVisibility: "visible",
-      beforeOpacity: "1"
-   }
-}
-
 function applyStyles(element, styleObj) {
    element.style.textShadow = styleObj.textShadow
    element.style.setProperty("--before-content", styleObj.beforeContent)
    element.style.setProperty("--before-visibility", styleObj.beforeVisibility)
    element.style.setProperty("--before-opacity", styleObj.beforeOpacity)
 }
-
-////
 
 function winner() {
    if (scoreHome > scoreGuest) {
@@ -87,24 +81,13 @@ function winner() {
 }
 
 function incrFouls(team) {
-   if (team === "home") {
-      foulsHome++
-
-      if (foulsHome > 5) {
-         foulsHome = 5
-         return
-      }
-      updateFoulLights(team, foulsHome)
+   const foulCount = team === "home" ? ++foulsHome : ++foulsGuest
+   if (foulCount > 5) {
+      if (team === "home") foulsHome = 5
+      else foulsGuest = 5
+      return
    }
-   else if (team === "guest") {
-      foulsGuest++
-
-      if (foulsGuest > 5) {
-         foulsGuest = 5
-         return
-      }
-      updateFoulLights(team, foulsGuest)
-   }
+   updateFoulLights(team, foulCount)
 }
 
 function updateFoulLights(team, count) {
@@ -133,16 +116,14 @@ function updateFoulLights(team, count) {
    }
 }
 
-///
-
 function resetFouls(team) {
    const foulLights = team === "home" ? foulLightsHome : foulLightsGuest
    const foulCount = team === "home" ? (foulsHome = 0) : (foulsGuest = 0)
+   
    // reset styles
-   foulLights.forEach(light => {
-      light.style.setProperty("--after-bg", "var(--color-bg-score)")
-      light.style.setProperty("--after-shadow", "var(--color-bg)")
-   })
+   if (team === "home") foulsHome = 0
+   else if (team === "guest") foulsGuest = 0
+   updateFoulLights(team, 0)
 }
 
 function newGame() {
@@ -157,13 +138,13 @@ function newGame() {
    resetFouls("guest")
 }
 
-document.getElementById("incr-home1-btn").addEventListener("click", () => incrementScore("home", 1))
-document.getElementById("incr-home2-btn").addEventListener("click", () => incrementScore("home", 2))
-document.getElementById("incr-home3-btn").addEventListener("click", () => incrementScore("home", 3))
+document.getElementById("incr-home1-btn").addEventListener("click", () => incrScore("home", 1))
+document.getElementById("incr-home2-btn").addEventListener("click", () => incrScore("home", 2))
+document.getElementById("incr-home3-btn").addEventListener("click", () => incrScore("home", 3))
 
-document.getElementById("incr-guest1-btn").addEventListener("click", () => incrementScore("guest", 1))
-document.getElementById("incr-guest2-btn").addEventListener("click", () => incrementScore("guest", 2))
-document.getElementById("incr-guest3-btn").addEventListener("click", () => incrementScore("guest", 3))
+document.getElementById("incr-guest1-btn").addEventListener("click", () => incrScore("guest", 1))
+document.getElementById("incr-guest2-btn").addEventListener("click", () => incrScore("guest", 2))
+document.getElementById("incr-guest3-btn").addEventListener("click", () => incrScore("guest", 3))
 
 document.getElementById("home-foul-btn").addEventListener("click", () => incrFouls("home"))
 document.getElementById("guest-foul-btn").addEventListener("click", () => incrFouls("guest"))
