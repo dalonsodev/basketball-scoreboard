@@ -148,14 +148,12 @@ function resetFouls(team) {
 function newGame() {
    scoreHome = 0
    newScoreHome.textContent = 0
-   playerHome.style.textShadow = "none"
-   playerHome.style.setProperty("--before-visibility", "hidden")
+   applyStyles(playerHome, leaderStyles.noLeader)
    resetFouls("home")
    
    scoreGuest = 0
    newScoreGuest.textContent = 0
-   playerGuest.style.textShadow = "none"
-   playerGuest.style.setProperty("--before-visibility", "hidden")
+   applyStyles(playerGuest, leaderStyles.noLeader)
    resetFouls("guest")
 }
 
