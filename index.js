@@ -1,66 +1,12 @@
 let scoreHome = 0
 let scoreGuest = 0
+let foulsHome = 0
+let foulsGuest = 0
 
 const playerGuest = document.getElementById("player-guest")
 const playerHome = document.getElementById("player-home")
-
-document.getElementById("score-home").textContent = scoreHome
-document.getElementById("score-guest").textContent = scoreGuest
-
-///////////////
-
 const newScoreHome = document.getElementById("score-home")
 const newScoreGuest = document.getElementById("score-guest")
-
-///
-
-function incrementScore(team, score) {
-   if (team === "home") {
-      scoreHome += score
-      newScoreHome.textContent = scoreHome
-   } 
-   else if (team === "guest") {
-      scoreGuest += score
-      newScoreGuest.textContent = scoreGuest
-   }
-   winner()
-}
-
-///
-
-function winner() {
-   if (scoreHome > scoreGuest) {
-      playerHome.style.textShadow = "0 0 5px var(--color-shadow-leader), 0 0 10px var(--color-shadow-leader)"
-      playerHome.style.setProperty("--before-content", '"LEADER"')
-      playerHome.style.setProperty("--before-visibility", "visible")
-      playerHome.style.setProperty("--before-opacity", "1")
-      playerGuest.style.setProperty("--before-visibility", "hidden")
-      playerGuest.style.setProperty("--before-opacity", "0")
-      playerGuest.style.textShadow = "none"
-   } else if (scoreHome < scoreGuest) {
-      playerGuest.style.textShadow = "0 0 5px var(--color-shadow-leader), 0 0 10px var(--color-shadow-leader)"
-      playerGuest.style.setProperty("--before-content", '"LEADER"')
-      playerGuest.style.setProperty("--before-visibility", "visible")
-      playerGuest.style.setProperty("--before-opacity", "1")
-      playerHome.style.setProperty("--before-visibility", "hidden")
-      playerHome.style.setProperty("--before-opacity", "0")
-      playerHome.style.textShadow = "none"
-   } else {
-      playerHome.style.textShadow = "0 0 2px var(--color-shadow-tie), 0 0 7px var(--color-shadow-tie)"
-      playerHome.style.setProperty("--before-content", '"- EVEN -"')
-      playerHome.style.setProperty("--before-visibility", "visible")
-      playerHome.style.setProperty("--before-opacity", "1")
-      playerGuest.style.textShadow = "0 0 2px var(--color-shadow-tie), 0 0 7px var(--color-shadow-tie)"
-      playerGuest.style.setProperty("--before-content", '"- EVEN -"')
-      playerGuest.style.setProperty("--before-visibility", "visible")
-      playerGuest.style.setProperty("--before-opacity", "1")
-   }
-}
-
-///////////////
-
-let foulsHome = 0
-let foulsGuest = 0
 
 const foulLightsHome = [
    document.getElementById("home-foul-light1"),
@@ -78,7 +24,67 @@ const foulLightsGuest = [
    document.getElementById("guest-foul-light5")
 ]
 
-///
+document.getElementById("score-home").textContent = scoreHome
+document.getElementById("score-guest").textContent = scoreGuest
+
+
+function incrementScore(team, score) {
+   if (team === "home") {
+      scoreHome += score
+      newScoreHome.textContent = scoreHome
+   } 
+   else if (team === "guest") {
+      scoreGuest += score
+      newScoreGuest.textContent = scoreGuest
+   }
+   winner()
+}
+
+////
+
+const leaderStyles = {
+   leader: {
+      textShadow: "0 0 5px var(--color-shadow-leader), 0 0 10px var(--color-shadow-leader)",
+      beforeContent: "'LEADER'",
+      beforeVisibility: "visible",
+      beforeOpacity: "1",
+   },
+   noLeader: {
+      textShadow: "none",
+      beforeVisibility: "hidden",
+      beforeOpacity: "0"
+   },
+   tie: {
+      textShadow: "0 0 2px var(--color-shadow-tie), 0 0 7px var(--color-shadow-tie)",
+      beforeContent: "'- EVEN -'",
+      beforeVisibility: "visible",
+      beforeOpacity: "1"
+   }
+}
+
+function applyStyles(element, styleObj) {
+   element.style.textShadow = styleObj.textShadow
+   element.style.setProperty("--before-content", styleObj.beforeContent)
+   element.style.setProperty("--before-visibility", styleObj.beforeVisibility)
+   element.style.setProperty("--before-opacity", styleObj.beforeOpacity)
+}
+
+////
+
+function winner() {
+   if (scoreHome > scoreGuest) {
+      applyStyles(playerHome, leaderStyles.leader)
+      applyStyles(playerGuest, leaderStyles.noLeader)
+   } 
+   else if (scoreHome < scoreGuest) {
+      applyStyles(playerGuest, leaderStyles.leader)
+      applyStyles(playerHome, leaderStyles.noLeader)
+   } 
+   else {
+      applyStyles(playerGuest, leaderStyles.tie)
+      applyStyles(playerHome, leaderStyles.tie)
+   }
+}
 
 function incrFouls(team) {
    if (team === "home") {
@@ -130,19 +136,14 @@ function updateFoulLights(team, count) {
 ///
 
 function resetFouls(team) {
-   // Selecciona foulsHome/foulsGuest y foulLightsHome/foulLightsGuest
    const foulLights = team === "home" ? foulLightsHome : foulLightsGuest
-   // Pone el contador a 0
    const foulCount = team === "home" ? (foulsHome = 0) : (foulsGuest = 0)
-   // Resetea los indicadores a --color-bg-score y --color-bg
+   // reset styles
    foulLights.forEach(light => {
       light.style.setProperty("--after-bg", "var(--color-bg-score)")
       light.style.setProperty("--after-shadow", "var(--color-bg)")
    })
 }
-
-
-//////////////
 
 function newGame() {
    scoreHome = 0
@@ -161,6 +162,7 @@ function newGame() {
 document.getElementById("incr-home1-btn").addEventListener("click", () => incrementScore("home", 1))
 document.getElementById("incr-home2-btn").addEventListener("click", () => incrementScore("home", 2))
 document.getElementById("incr-home3-btn").addEventListener("click", () => incrementScore("home", 3))
+
 document.getElementById("incr-guest1-btn").addEventListener("click", () => incrementScore("guest", 1))
 document.getElementById("incr-guest2-btn").addEventListener("click", () => incrementScore("guest", 2))
 document.getElementById("incr-guest3-btn").addEventListener("click", () => incrementScore("guest", 3))

@@ -196,7 +196,7 @@ body {
     position: relative;
     width: 10px;
     height: 10px;
-    background: #000;
+    background: var(--color-bg-score);
     border-radius: 35%;
 }
 
@@ -208,7 +208,6 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* background: #10B981; */
     background: var(--after-bg, --color-bg-score);
     box-shadow: 0 0 4px var(--after-shadow, --color-shadow-light);
     border-radius: 35%;
