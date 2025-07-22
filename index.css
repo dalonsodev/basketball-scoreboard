@@ -299,6 +299,6 @@ body {
 
 @media (orientation: landscape) {
    .container {
-      transform: scale(0.8);
+      transform: scaleY(0.8);
    }
 }
